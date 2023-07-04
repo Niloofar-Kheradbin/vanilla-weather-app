@@ -15,26 +15,30 @@
   <body>
     <div class="container">
       <div class="weather-app">
+        <form action="search" aria-placeholder="Enter a city">
+          <input type="search" />
+          <button>Search</button>
+        </form>
+
+        <h1>Tehran</h1>
+        <ul>
+          <li>Tuesday 13:52</li>
+          <li>few clouds</li>
+        </ul>
         <div class="row">
-          <div class="col-6">
-            <h1>Tehran</h1>
-            <ul>
-              <div class="row">
-                <div class="col-8">
-                  <li>Tuesday 13:52</li>
-                  <li>few clouds</li>
-                </div>
-                <div class="col-4">
-                  <li>Humidity: 88%</li>
-                  <li>Wind: 4.92km/h</li>
-                </div>
-              </div>
-            </ul>
+          <div class="col-4">
+            <h2>
+              <img src="img/pngwing.com.png" alt="clear-sky" />34<span
+                >℃ | ℉</span
+              >
+            </h2>
           </div>
-          <div class="col-6">
-            <h2>☀ 34 ℃ | ℉</h2>
+          <div class="col-3">
+            <li>Humidity: 88%</li>
+            <li>Wind: 4.92km/h</li>
           </div>
         </div>
+
         <small
           >This project was coded by
           <a
