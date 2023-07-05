@@ -37,8 +37,28 @@ img {
 .overview {
   margin-bottom: 30px;
 }
-.units {
+.weather-temperature .units {
   position: relative;
-  line-height: 1px;
   font-size: smaller;
+  top: -30px;
+}
+.weather-temperature .units .to-celcius {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+.weather-temperature .units .to-celcius:hover {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+.weather-temperature .units .to-farenheit {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+.weather-temperature .units .to-farenheit:hover {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
 }
