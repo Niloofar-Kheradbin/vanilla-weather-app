@@ -14,49 +14,52 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <form action="search">
-          <input type="search" placeholder="Enter a city..." />
-          <button>Search</button>
-        </form>
-
-        <h1>Tehran</h1>
-        <ul>
-          <li>Tuesday 13:52</li>
-          <li>few clouds</li>
-        </ul>
-        <div class="row">
-          <div class="col">
-            <h2>
-              <img src="img/pngwing.com.png" alt="clear-sky" /><span
-                ><strong>34</strong> ℃ | ℉</span
-              >
-            </h2>
-          </div>
-          <div class="col">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form action="search">
+            <input type="search" placeholder="Enter a city..." />
+            <button>Search</button>
+          </form>
+          <div class="overview">
+            <h1>Tehran</h1>
             <ul>
-              <li>Humidity: 88%</li>
-              <li>Wind: 4.92km/h</li>
+              <li>Tuesday 13:52</li>
+              <li>few clouds</li>
             </ul>
           </div>
+          <div class="row">
+            <div class="col">
+              <div class="weather-temperature">
+                <img src="img/pngwing.com.png" alt="clear-sky" /><strong
+                  >34</strong
+                ><span class="units"> ℃ | ℉</span>
+              </div>
+            </div>
+            <div class="col">
+              <ul>
+                <li>Humidity: 88%</li>
+                <li>Wind: 4.92km/h</li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <small
+          >Developed by
+          <a
+            href="http://https://www.linkedin.com/in/niloofar-kheradbin-38957b151/?originalSubdomain=ir"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Niloofar Kheradbin</a
+          >
+          (open-sourced on
+          <a
+            href="http://https://github.com/Niloofar-Kheradbin/vanilla-weather-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub)</a
+          >
+        </small>
       </div>
-      <small
-        >Developed by
-        <a
-          href="http://https://www.linkedin.com/in/niloofar-kheradbin-38957b151/?originalSubdomain=ir"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Niloofar Kheradbin</a
-        >
-        (open-sourced on
-        <a
-          href="http://https://github.com/Niloofar-Kheradbin/vanilla-weather-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          >GitHub)</a
-        >
-      </small>
     </div>
     <script src="app.js"></script>
   </body>
