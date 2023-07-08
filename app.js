@@ -1,8 +1,17 @@
 function search(event) {
   event.preventDefault();
+  let key = "9bb3c645e603b5a1074b400fa0498278";
+  let city = document.querySelector("#city");
   let cityValue = document.querySelector("h1");
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=${key}&units=metric`;
   cityValue.innerHTML = city.value;
+  axios.get(apiUrl).then(showTemp);
+  showTemp();
 }
+function showTemp(response) {
+  console.log(response.data);
+}
+
 function dateTime() {
   let today = new Date();
   let days = [
@@ -28,8 +37,7 @@ function dateTime() {
   dayValue.innerHTML = day;
   time.innerHTML = ` ${hour}:${minutes} `;
 }
-let city = document.querySelector("#city");
-city.innerHTML = addEventListener("submit", search);
-let key = "4t6f8979960243ab78649cce393e06oc";
-let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=4t6f8979960243ab78649cce393e06oc&units=metric`;
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
+
 dateTime();
