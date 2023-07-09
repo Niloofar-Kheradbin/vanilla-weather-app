@@ -6,10 +6,21 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=${key}&units=metric`;
   cityValue.innerHTML = city.value;
   axios.get(apiUrl).then(showTemp);
-  showTemp();
 }
 function showTemp(response) {
-  console.log(response.data);
+  let weatherDescription = document.querySelector("#description");
+  let temperature = document.querySelector("#temperature");
+  let wind = document.querySelector("#wind");
+  let icon = document.querySelector("#icon");
+
+  weatherDescription.innerHTML = response.data.list[0].weather[0].description;
+  temperature.innerHTML = Math.round(response.data.list[0].main.temp);
+  wind.innerHTML = Math.round(response.data.list[0].wind.speed);
+  icon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.list[0].weather[0].description);
 }
 
 function dateTime() {
