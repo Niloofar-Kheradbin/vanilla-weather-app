@@ -11,11 +11,13 @@ function showTemp(response) {
   let weatherDescription = document.querySelector("#description");
   let temperature = document.querySelector("#temperature");
   let toFarenheit = document.querySelector("#to-farenheit");
-  let toCelcius = document.querySelector("to-celcius");
+  let toCelcius = document.querySelector("#to-celcius");
   let wind = document.querySelector("#wind");
   let icon = document.querySelector("#icon");
 
   function changeTofarenheit(event) {
+    toFarenheit.classList.add("active");
+    toCelcius.classList.remove("active");
     event.preventDefault();
     let temperature = document.querySelector("#temperature");
     temperature.innerHTML =
@@ -23,6 +25,8 @@ function showTemp(response) {
   }
   function changeTocelcius(event) {
     event.preventDefault();
+    toCelcius.classList.add("active");
+    toFarenheit.classList.remove("active");
     let temperature = document.querySelector("#temperature");
     temperature.innerHTML = Math.round(response.data.list[0].main.temp);
   }

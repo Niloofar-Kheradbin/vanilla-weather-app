@@ -44,29 +44,24 @@ img {
   font-size: smaller;
   top: -30px;
 }
-.weather-temperature .units .to-celcius {
+.weather-temperature .units .active {
   text-decoration: none;
   color: black;
   cursor: default;
 }
-.weather-temperature .units .to-celcius:hover {
-  text-decoration: underline;
-  color: blue;
-  cursor: pointer;
-}
-.weather-temperature .units .to-farenheit {
+.weather-temperature .units .active:hover {
   text-decoration: none;
-  color: black;
-  cursor: default;
 }
-.weather-temperature .units .to-farenheit:hover {
-  text-decoration: underline;
-  color: blue;
-  cursor: pointer;
-}
+
 .form-control {
   margin-bottom: 10px;
 }
 li::first-letter {
   text-transform: capitalize;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
