@@ -10,11 +10,29 @@ function search(event) {
 function showTemp(response) {
   let weatherDescription = document.querySelector("#description");
   let temperature = document.querySelector("#temperature");
+  let toFarenheit = document.querySelector("#to-farenheit");
+  let toCelcius = document.querySelector("to-celcius");
   let wind = document.querySelector("#wind");
   let icon = document.querySelector("#icon");
 
+  function changeTofarenheit(event) {
+    event.preventDefault();
+    let temperature = document.querySelector("#temperature");
+    temperature.innerHTML =
+      Math.round(Math.round(response.data.list[0].main.temp) * 1.8) + 32;
+  }
+  function changeTocelcius(event) {
+    event.preventDefault();
+    let temperature = document.querySelector("#temperature");
+    temperature.innerHTML = Math.round(response.data.list[0].main.temp);
+  }
+
+  toCelcius.addEventListener("click", changeTocelcius);
+  toFarenheit.addEventListener("click", changeTofarenheit);
+
   weatherDescription.innerHTML = response.data.list[0].weather[0].description;
   temperature.innerHTML = Math.round(response.data.list[0].main.temp);
+
   wind.innerHTML = Math.round(response.data.list[0].wind.speed);
   icon.setAttribute(
     "src",
@@ -48,7 +66,9 @@ function dateTime() {
   dayValue.innerHTML = day;
   time.innerHTML = ` ${hour}:${minutes} `;
 }
+
 let searchForm = document.querySelector("#search-form");
+
 searchForm.addEventListener("submit", search);
 
 dateTime();
