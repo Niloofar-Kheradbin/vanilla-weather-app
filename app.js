@@ -21,6 +21,7 @@ function showTemp(response) {
   let temperature = document.querySelector("#temperature");
   let toFarenheit = document.querySelector("#to-farenheit");
   let toCelcius = document.querySelector("#to-celcius");
+  let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   let icon = document.querySelector("#icon");
 
@@ -46,7 +47,7 @@ function showTemp(response) {
   time.innerHTML = dateTime(response.data.list[0].dt * 1000);
   weatherDescription.innerHTML = response.data.list[0].weather[0].description;
   temperature.innerHTML = Math.round(response.data.list[0].main.temp);
-
+  humidity.innerHTML = response.data.list[0].main.humidity;
   wind.innerHTML = Math.round(response.data.list[0].wind.speed);
   icon.setAttribute(
     "src",
