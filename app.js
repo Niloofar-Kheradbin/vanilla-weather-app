@@ -1,9 +1,17 @@
-function search(event) {
+function defaultSearch(city) {
+  let cityValue = document.querySelector("h1");
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
+
+  cityValue.innerHTML = city;
+  axios.get(apiUrl).then(showTemp);
+}
+
+function handleSubmit(event) {
   event.preventDefault();
-  let key = "9bb3c645e603b5a1074b400fa0498278";
   let city = document.querySelector("#city");
   let cityValue = document.querySelector("h1");
   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=${key}&units=metric`;
+
   cityValue.innerHTML = city.value;
   axios.get(apiUrl).then(showTemp);
 }
@@ -71,8 +79,10 @@ function dateTime() {
   time.innerHTML = ` ${hour}:${minutes} `;
 }
 
+let key = "9bb3c645e603b5a1074b400fa0498278";
 let searchForm = document.querySelector("#search-form");
 
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", handleSubmit);
 
 dateTime();
+defaultSearch("Tehran");
