@@ -16,6 +16,7 @@ function handleSubmit(event) {
   axios.get(apiUrl).then(showTemp);
 }
 function showTemp(response) {
+  let time = document.querySelector("#time");
   let weatherDescription = document.querySelector("#description");
   let temperature = document.querySelector("#temperature");
   let toFarenheit = document.querySelector("#to-farenheit");
@@ -42,6 +43,7 @@ function showTemp(response) {
   toCelcius.addEventListener("click", changeTocelcius);
   toFarenheit.addEventListener("click", changeTofarenheit);
 
+  time.innerHTML = dateTime(response.data.list[0].dt * 1000);
   weatherDescription.innerHTML = response.data.list[0].weather[0].description;
   temperature.innerHTML = Math.round(response.data.list[0].main.temp);
 
@@ -53,8 +55,8 @@ function showTemp(response) {
   icon.setAttribute("alt", response.data.list[0].weather[0].description);
 }
 
-function dateTime() {
-  let today = new Date();
+function dateTime(timestamp) {
+  let today = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -65,8 +67,6 @@ function dateTime() {
     "Saturday",
   ];
   let day = days[today.getDay()];
-  let dayValue = document.querySelector("#day");
-  let time = document.querySelector("#time");
   let hour = today.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -75,8 +75,8 @@ function dateTime() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  dayValue.innerHTML = day;
-  time.innerHTML = ` ${hour}:${minutes} `;
+
+  return `${day} ${hour}:${minutes} `;
 }
 
 let key = "9bb3c645e603b5a1074b400fa0498278";
@@ -84,5 +84,4 @@ let searchForm = document.querySelector("#search-form");
 
 searchForm.addEventListener("submit", handleSubmit);
 
-dateTime();
 defaultSearch("Tehran");
